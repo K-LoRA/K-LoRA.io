@@ -1,0 +1,179 @@
+<html>
+<meta charset=utf-8>
+<title>K-LoRA</title>
+<link href=stylesheet_1.css rel=stylesheet>
+<meta name=referrer content=no-referrer>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <link rel=icon type=image/x-icon href=images/0.ico>
+<link rel=canonical href=https://ziplora.github.io /> -->
+<meta http-equiv=content-security-policy
+    content="default-src 'none'; connect-src 'self' data: blob:; font-src 'self' data: blob:; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline' data: blob:; frame-src 'self' data: blob:; media-src 'self' data: blob:; script-src 'self' 'unsafe-inline' data: blob:; object-src 'self' data: blob:;">
+<style>
+    img[src="data:,"],
+    source[src="data:,"] {
+        display: none !important
+    }
+</style>
+<style>
+    /* 新增样式：上方两张图片的布局 */
+    .top-images {
+        display: flex;
+        justify-content: center; /* 水平居中 */
+        gap: 20px; /* 图片之间的间距 */
+        margin-bottom: 20px; /* 与下方图片的间距 */
+    }
+
+    /* 图片和注释的容器 */
+    .image-with-caption {
+        text-align: center; /* 图片和注释居中 */
+    }
+
+    /* 注释样式 */
+    .caption {
+        font-size: 14px; /* 注释文字大小 */
+        color: #666; /* 注释文字颜色 */
+        margin-top: 5px; /* 注释与图片的间距 */
+    }
+</style>
+</head>
+
+<body>
+    <div class="content">
+        <h1><strong>K-LoRA: Unlocking Training-Free Fusion of Any Subject and Style LoRAs</strong></h1>
+        <p id="authors">
+            <a href="" title="Ziheng Ouyang's homepage">Ziheng Ouyang<sup></sup></a>
+            <a href="" title="Zhen Li's homepage">Zhen Li<sup></sup></a>
+            <a href="" title="Qibin Hou's homepage">Qibin Hou<sup></sup></a>
+            <br><br>
+            <span style="font-size:24px; padding-right:20px"><sup></sup>VCIP, School of Computer Science, Nankai
+                University</span>
+        </p>
+        <br>
+        <div class="top-images">
+            <!-- 第一张图片及其注释 -->
+            <div class="image-with-caption" style="width: 41%;"> <!-- 设置第一张图片的宽度 -->
+                <img src="images/111.png" alt="Top Image 1" style="width:100%;">
+                <p class="caption">The content is located at the top left corner, while the remaining areas contain the generated images (using <b>Flux</b>), each accompanied by its corresponding style.</p>
+            </div>
+            <!-- 第二张图片及其注释 -->
+            <div class="image-with-caption" style="width: 78%;"> <!-- 设置第二张图片的宽度 -->
+                <img src="images/1.png" alt="Top Image 2" style="width:100%;">
+            </div>
+        
+        </div>
+
+        <div style="text-align: center;">
+            <span style="font-size: 20px; padding-right: 20px; font-style: italic;">
+                <sup></sup>Our method supports advanced generative models such as <strong>Flux</strong> and Stable Diffusion, etc.
+            </span>
+          </div>
+
+        <br>
+        <p style="text-align:center; font-size: 18px;">
+            <a href="" target="_blank" rel="noopener" title="View Paper">[Paper]</a>
+        <p style="text-align:center; font-size: 18px;">
+            <a href="https://github.com/HVision-NKU/K-LoRA" target="_blank" rel="noopener" title="View code">[code]</a>
+        </p>
+    </div>
+
+    <div class=content>
+        <h2 style=text-align:center>Abstract</h2>
+        <p>Recent studies have explored combining different LoRAs to jointly generate learned style and content.
+            However, existing methods either fail to effectively preserve both the original subject and style
+            simultaneously or require additional training. In this paper, we argue that the intrinsic properties of LoRA
+            can effectively guide diffusion models in merging learned subject and style. Building on this insight, we
+            propose <strong>K-LoRA</strong>, a simple yet effective training-free LoRA fusion approach. In each
+            attention layer, <strong>K-LoRA</strong> compares the Top-K elements in each LoRA to be fused, determining
+            which LoRA to select for optimal fusion. This selection mechanism ensures that the most representative
+            features of both subject and style are retained during the fusion process, effectively balancing their
+            contributions. Experimental results demonstrate that the proposed method effectively integrates the subject
+            and style information learned by the original LoRAs, outperforming state-of-the-art training-based
+            approaches in both qualitative and quantitative results.</p>
+
+    </div>
+
+    <div class=content>
+        <h2 style=text-align:center>Visual results</h2>
+        <p><strong>K-LoRA</strong> generally achieves a seamless integration of objects and styles, effectively
+            preserving fidelity and preventing distortion. The images below are generated using Stable Diffusion.
+            <br>
+            <img class=summary-img src="images\pictureMap_page-0001.jpg" style=width:100% alt="">
+            <br>
+            <br>
+            <img class=summary-img src="images\pictureMap(4)_page-0001.jpg" style=width:100% alt="">
+    </div>
+
+    <div class=content>
+        <h2 style=text-align:center>Comparison results</h2>
+        <p>Compared to other methods, <strong>K-LoRA</strong> We provide comparisons with Direct Merge, Joint Training,
+            B-LoRA and ZipLoRA.</p>
+        <br>
+        <img class=summary-img src="images\compare1.png" style=width:100% alt="">
+    </div>
+
+
+
+    <div class=content>
+        <h2 style=text-align:center>Conclusions</h2>
+        <p>We derive key conclusions. (i) Only a restricted number of diffusion prediction steps are sufficient to
+            retain the original effect. (ii) When applying LoRA, the initial diffusion steps are responsible for
+            reconstructing the object and capturing larger texture details, while the subsequent steps focus on
+            enhancing and refining the finer details of the object and the texture in style.</p>
+        <br>
+        <br>
+
+        <img class=summary-img src="images/new_insight_page-0001.jpg" style=width:100% alt="">
+
+    </div>
+
+    <div class=content>
+        <h2 style=text-align:center>Method</h2>
+        <p>
+            We utilizes the Top-K function to select the important LoRA weights in each forward layer based on the sum
+            of matrix elements.
+        </p>
+        <br>
+
+        <img class=summary-img src="images\net_page-0001.jpg" style=width:100% alt="">
+
+    </div>
+    <div class=content>
+        <h2 style=text-align:center>Prompt control</h2>
+        <p>
+            We conducted experiments to evaluate whether our method can modify the object's actions, the surrounding
+            environment, or introduce new contents through prompt adjustments. We also used B-LoRA to obtain comparison
+            results. (In B-LoRA, for cases where testing with multiple seeds fails to generate the original object after
+            adding additional prompts, we append the class of the original content after &lt;c&gt;.)
+        </p>
+        <br>
+        <img class="summary-img" src="images/prompt1_page-0001.jpg" alt="" style="width:100%">
+        <br>
+        <br>
+        <br>
+        <img class="summary-img" src="images/prompt2_page-0001.jpg" alt="" style="width:100%">
+    </div>
+
+
+        <!-- <img class="summary-img" src="images/prompt3_page-0001.jpg" alt="" style="width:100%">
+        <br>
+        <br>
+        <br>
+        <img class="summary-img" src="images/prompt4_page-0001.jpg" alt="" style="width:100%">
+        <br> -->
+
+    <!-- <div class=content>
+        <h2>BibTex</h2>
+        <code> @article{shah2023ZipLoRA,<br>
+ &nbsp;&nbsp;title={ZipLoRA: Any Subject in Any Style by Effectively Merging LoRAs},<br>
+ &nbsp;&nbsp;author={Shah, Viraj and Ruiz, Nataniel and Cole, Forrester and Lu, Erika and Lazebnik, Svetlana and Li, Yuanzhen and Jampani, Varun},<br>
+ &nbsp;&nbsp;booktitle={arXiv preprint arxiv:2311.13600},<br>
+ &nbsp;&nbsp;year={2023}<br>
+ } </code>
+    </div> -->
+
+    <!-- <div class=content id=acknowledgements>
+        <p><em>Acknowledgements</em>:
+            We thank Prafull Sharma, Meera Hahn, Jason Baldridge and Dilip Krishnan for helpful discussions and
+            suggestions. We also thank Kihyuk Sohn for helping with the generation of StyleDrop results.
+        </p> -->
+    </div>
