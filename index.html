@@ -14,27 +14,7 @@
         display: none !important
     }
 </style>
-<style>
-    /* 新增样式：上方两张图片的布局 */
-    .top-images {
-        display: flex;
-        justify-content: center; /* 水平居中 */
-        gap: 20px; /* 图片之间的间距 */
-        margin-bottom: 20px; /* 与下方图片的间距 */
-    }
 
-    /* 图片和注释的容器 */
-    .image-with-caption {
-        text-align: center; /* 图片和注释居中 */
-    }
-
-    /* 注释样式 */
-    .caption {
-        font-size: 14px; /* 注释文字大小 */
-        color: #666; /* 注释文字颜色 */
-        margin-top: 5px; /* 注释与图片的间距 */
-    }
-</style>
 </head>
 
 <body>
@@ -53,27 +33,72 @@
             <!-- 第一张图片及其注释 -->
             <div class="image-with-caption" style="width: 41%;"> <!-- 设置第一张图片的宽度 -->
                 <img src="images/111.png" alt="Top Image 1" style="width:100%;">
-                <p class="caption">The content is located at the top left corner, while the remaining areas contain the generated images (using <b>Flux</b>), each accompanied by its corresponding style.</p>
+                <p class="caption">The content is located at the top left corner, while the remaining areas contain the
+                    generated images (using <b>Flux</b>), each accompanied by its corresponding style.</p>
             </div>
             <!-- 第二张图片及其注释 -->
             <div class="image-with-caption" style="width: 78%;"> <!-- 设置第二张图片的宽度 -->
                 <img src="images/1.png" alt="Top Image 2" style="width:100%;">
             </div>
-        
+
         </div>
 
         <div style="text-align: center;">
             <span style="font-size: 20px; padding-right: 20px; font-style: italic;">
-                <sup></sup>Our method supports advanced generative models such as <strong>Flux</strong> and Stable Diffusion, etc.
+                <sup></sup>Our method supports advanced generative models such as <strong>Flux</strong> and Stable
+                Diffusion, etc.
             </span>
-          </div>
+        </div>
 
         <br>
+        <br>
         <p style="text-align:center; font-size: 18px;">
-            <a href="" target="_blank" rel="noopener" title="View Paper">[Paper]</a>
-        <p style="text-align:center; font-size: 18px;">
-            <a href="https://github.com/HVision-NKU/K-LoRA" target="_blank" rel="noopener" title="View code">[code]</a>
+            <a href="" target="_blank" rel="noopener" title="View Paper" style="display: inline-block; margin-right: 10px;">[Paper]</a>
+            <a href="https://github.com/HVision-NKU/K-LoRA" target="_blank" rel="noopener" title="View code" style="display: inline-block;">[code]</a>
         </p>
+        
+    </div>
+
+
+    <div class="content">
+        <h2 style="text-align:center">Visual results</h2>
+        <p><strong>K-LoRA</strong> generally achieves a seamless integration of objects and styles, effectively
+            preserving fidelity and preventing distortion.</p>
+        <br>
+
+        <!-- Slider 1 -->
+        <div class="slider-container" data-slider-id="1">
+            <div class="slider-images">
+                <div class="slide">
+                    <p class="image-caption">Results on Flux</p>
+                    <img class="summary-img" src="images/3.svg" style="width:100%" alt="">
+                </div>
+                <div class="slide">
+                    <p class="image-caption">Results on Flux</p>
+                    <img class="summary-img" src="images/2.svg" style="width:100%" alt="">
+                </div>
+                <div class="slide">
+                    <p class="image-caption">Results on Stable Diffusion</p>
+                    <img class="summary-img" src="images/pictureMap_page-0001.jpg" style="width:100%" alt="">
+                </div>
+                <div class="slide">
+                    <p class="image-caption">Stable Diffusion</p>
+                    <img class="summary-img" src="images/pictureMap(4)_page-0001.jpg" style="width:100%" alt="">
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="prev" onclick="moveSlide(-1, 1)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1, 1)">&#10095;</button>
+            </div>
+            <div class="dots">
+                <span class="dot" onclick="currentSlide(1, 1)"></span>
+                <span class="dot" onclick="currentSlide(2, 1)"></span>
+                <span class="dot" onclick="currentSlide(3, 1)"></span>
+                <span class="dot" onclick="currentSlide(4, 1)"></span>
+            </div>
+        </div>
+
+
     </div>
 
     <div class=content>
@@ -93,27 +118,16 @@
     </div>
 
     <div class=content>
-        <h2 style=text-align:center>Visual results</h2>
-        <p><strong>K-LoRA</strong> generally achieves a seamless integration of objects and styles, effectively
-            preserving fidelity and preventing distortion. The images below are generated using Stable Diffusion.
-            <br>
-            <img class=summary-img src="images\pictureMap_page-0001.jpg" style=width:100% alt="">
-            <br>
-            <br>
-            <img class=summary-img src="images\pictureMap(4)_page-0001.jpg" style=width:100% alt="">
-    </div>
-
-    <div class=content>
         <h2 style=text-align:center>Comparison results</h2>
         <p>Compared to other methods, <strong>K-LoRA</strong> We provide comparisons with Direct Merge, Joint Training,
             B-LoRA and ZipLoRA.</p>
         <br>
-        <img class=summary-img src="images\compare1.png" style=width:100% alt="">
+        <img class=summary-img src="images\1.svg" style=width:100% alt="">
     </div>
 
 
 
-    <div class=content>
+    <!-- <div class=content>
         <h2 style=text-align:center>Conclusions</h2>
         <p>We derive key conclusions. (i) Only a restricted number of diffusion prediction steps are sufficient to
             retain the original effect. (ii) When applying LoRA, the initial diffusion steps are responsible for
@@ -122,9 +136,8 @@
         <br>
         <br>
 
-        <img class=summary-img src="images/new_insight_page-0001.jpg" style=width:100% alt="">
-
-    </div>
+        <img class=summary-img src="images/1.svg" style=width:100% alt="">
+    </div> -->
 
     <div class=content>
         <h2 style=text-align:center>Method</h2>
@@ -135,8 +148,9 @@
         <br>
 
         <img class=summary-img src="images\net_page-0001.jpg" style=width:100% alt="">
-
     </div>
+
+
     <div class=content>
         <h2 style=text-align:center>Prompt control</h2>
         <p>
@@ -145,16 +159,39 @@
             results. (In B-LoRA, for cases where testing with multiple seeds fails to generate the original object after
             adding additional prompts, we append the class of the original content after &lt;c&gt;.)
         </p>
-        <br>
-        <img class="summary-img" src="images/prompt1_page-0001.jpg" alt="" style="width:100%">
-        <br>
-        <br>
-        <br>
-        <img class="summary-img" src="images/prompt2_page-0001.jpg" alt="" style="width:100%">
+
+        <!-- Slider 2 -->
+        <div class="slider-container" data-slider-id="2">
+            <div class="slider-images">
+                <div class="slide">
+                    <img class="summary-img" src="images/61.svg" style="width:100%" alt="">
+                </div>
+                <div class="slide">
+                    <img class="summary-img" src="images/62.svg" style="width:100%" alt="">
+                </div>
+                <div class="slide">
+                    <img class="summary-img" src="images/63.svg" style="width:100%" alt="">
+                </div>
+                <div class="slide">
+                    <img class="summary-img" src="images/64.svg" style="width:100%" alt="">
+                </div>
+            </div>
+
+            <div class="slider-controls">
+                <button class="prev" onclick="moveSlide(-1, 2)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1, 2)">&#10095;</button>
+            </div>
+            <div class="dots">
+                <span class="dot" onclick="currentSlide(1, 2)"></span>
+                <span class="dot" onclick="currentSlide(2, 2)"></span>
+                <span class="dot" onclick="currentSlide(3, 2)"></span>
+                <span class="dot" onclick="currentSlide(4, 2)"></span>
+            </div>
+        </div>
     </div>
 
 
-        <!-- <img class="summary-img" src="images/prompt3_page-0001.jpg" alt="" style="width:100%">
+    <!-- <img class="summary-img" src="images/prompt3_page-0001.jpg" alt="" style="width:100%">
         <br>
         <br>
         <br>
@@ -176,4 +213,134 @@
             We thank Prafull Sharma, Meera Hahn, Jason Baldridge and Dilip Krishnan for helpful discussions and
             suggestions. We also thank Kihyuk Sohn for helping with the generation of StyleDrop results.
         </p> -->
+    <script>
+        // Initialize slideIndex for multiple sliders
+        let slideIndex = [1, 1]; // We store the index for each slider
+
+        // Function to show a specific slide based on the sliderId
+        function showSlide(n, sliderId) {
+            let slides = document.querySelectorAll(`[data-slider-id="${sliderId}"] .slider-images .slide`);
+            let dots = document.querySelectorAll(`[data-slider-id="${sliderId}"] .dot`);
+
+            if (n > slides.length) slideIndex[sliderId - 1] = 1;
+            if (n < 1) slideIndex[sliderId - 1] = slides.length;
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+
+            slides[slideIndex[sliderId - 1] - 1].style.display = "block";
+            dots[slideIndex[sliderId - 1] - 1].classList.add("active");
+        }
+
+        // Move slide up/down by 1 step
+        function moveSlide(n, sliderId) {
+            slideIndex[sliderId - 1] += n;
+            showSlide(slideIndex[sliderId - 1], sliderId);
+        }
+
+        // Jump to a specific slide
+        function currentSlide(n, sliderId) {
+            slideIndex[sliderId - 1] = n;
+            showSlide(slideIndex[sliderId - 1], sliderId);
+        }
+
+        // Initialize the first slide for each slider
+        document.querySelectorAll('.slider-container').forEach((container, index) => {
+            showSlide(slideIndex[index], index + 1);
+        });
+    </script>
+
+    <style>
+        .slider-container {
+            position: relative;
+            max-width: 100%;
+        }
+
+        .slider-images .slide {
+            display: none;
+            text-align: center;
+        }
+
+        .image-caption {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 100;
+        }
+
+        .slider-controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            font-size: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .slider-controls .prev {
+            position: absolute;
+            left: -47px;
+        }
+
+        .slider-controls .next {
+            position: absolute;
+            right: -47px;
+        }
+
+        .slider-controls button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.2);
+        }
+
+        .slider-controls button:focus {
+            outline: none;
+        }
+
+        .dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+    </style>
+
+
+
+
     </div>

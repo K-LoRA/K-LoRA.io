@@ -1,1 +1,24 @@
-@import url(stylesheet_0.css);body{font-family:"Open-Sans",sans-serif;font-weight:300;background-color:#fff}.content{width:1000px;padding:25px 50px;margin:25px auto;background-color:white;box-shadow:0px 0px 10px #999;border-radius:15px;font-family:"Google Sans"}a,a:visited{color:#224b8d;font-weight:300}#authors{text-align:center;margin-bottom:20px;font-size:20px}#authors a{margin:0 10px}h1{text-align:center;font-size:35px;font-weight:300}h2{font-size:30px;font-weight:300}code{display:block;padding:10px;margin:10px 10px}p{line-height:25px;text-align:justify}.teaser-gif{display:block;margin-left:auto;margin-right:auto}.summary-img{display:block;margin-left:auto;margin-right:auto}
+@import url(stylesheet_0.css);
+body{font-family:"Open-Sans",sans-serif;font-weight:300;background-color:#fff}
+.content{width:1000px;padding:25px 50px;margin:25px auto;background-color:white;box-shadow:0px 0px 10px #999;border-radius:15px;font-family:"Google Sans"}a,a:visited{color:#224b8d;font-weight:300}#authors{text-align:center;margin-bottom:20px;font-size:20px}
+#authors a{margin:0 10px}
+h1{text-align:center;font-size:35px;font-weight:300}
+h2{font-size:30px;font-weight:300}
+code{display:block;padding:10px;margin:10px 10px}
+p{line-height:25px;text-align:justify}
+.teaser-gif{display:block;margin-left:auto;margin-right:auto}
+.summary-img{display:block;margin-left:auto;margin-right:auto}
+.top-images {
+        display: flex;
+        justify-content: center; /* 水平居中 */
+        gap: 20px; /* 图片之间的间距 */
+        margin-bottom: 20px; /* 与下方图片的间距 */
+}
+.image-with-caption {
+        text-align: center; /* 图片和注释居中 */
+}
+.caption {
+        font-size: 14px; /* 注释文字大小 */
+        color: #666; /* 注释文字颜色 */
+        margin-top: 5px; /* 注释与图片的间距 */
+}
